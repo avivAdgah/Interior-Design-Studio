@@ -1,6 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { PerspectiveCamera, OrbitControls } from "@react-three/drei";
-import HouseModel from "@/components/three/HouseModel";
+import HotelSuite from "@/components/three/hotel/HotelSuite";
+import { SPAWN } from "@/components/three/hotel/layout";
 import WalkthroughControls from "@/components/three/WalkthroughControls";
 
 export default function Scene({ resetKey = 0, mode = "orbit", onExitWalkthrough }) {
@@ -8,9 +9,9 @@ export default function Scene({ resetKey = 0, mode = "orbit", onExitWalkthrough 
     <Canvas key={resetKey} shadows dpr={[1, 1.5]}>
       <PerspectiveCamera
         makeDefault
-        position={[8.5, 3.4, 9]}
-        fov={38}
-        onUpdate={(camera) => camera.lookAt(0, 0.9, 0)}
+        position={SPAWN.position}
+        fov={62}
+        onUpdate={(camera) => camera.lookAt(...SPAWN.lookAt)}
       />
 
       {mode === "walkthrough" ? (
@@ -18,24 +19,28 @@ export default function Scene({ resetKey = 0, mode = "orbit", onExitWalkthrough 
       ) : (
         <OrbitControls
           makeDefault
-          target={[0, 0.9, 0]}
-          minDistance={4}
-          maxDistance={16}
-          minPolarAngle={0.2}
-          maxPolarAngle={Math.PI / 2 - 0.05}
+          target={SPAWN.lookAt}
+          minDistance={1.8}
+          maxDistance={2.6}
+          minPolarAngle={0.9}
+          maxPolarAngle={2.1}
           enableDamping
         />
       )}
 
-      <ambientLight intensity={0.6} />
+      <ambientLight intensity={0.45} />
       <directionalLight
-        position={[6, 8, 4]}
-        intensity={1.4}
+        position={[10, 6, 1]}
+        target-position={[3, 1, 1]}
+        intensity={1.1}
+        color="#ffd9a8"
         castShadow
         shadow-mapSize={[1024, 1024]}
       />
-      <directionalLight position={[-6, 3, -4]} intensity={0.3} />
-      <HouseModel />
+      <directionalLight position={[-3, 4, -6]} intensity={0.2} color="#cfe0ff" />
+      <hemisphereLight args={["#fbe6c8", "#2a2622", 0.35]} />
+
+      <HotelSuite />
       <color attach="background" args={["#1a1a1a"]} />
     </Canvas>
   );

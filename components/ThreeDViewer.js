@@ -18,11 +18,6 @@ function isWebGLAvailable() {
   }
 }
 
-function isTouchDevice() {
-  if (typeof window === "undefined") return false;
-  return window.matchMedia("(pointer: coarse)").matches;
-}
-
 export default function ThreeDViewer() {
   const [status, setStatus] = useState(() =>
     isWebGLAvailable() ? "loading" : "error"
@@ -30,7 +25,6 @@ export default function ThreeDViewer() {
   const [progress, setProgress] = useState(0);
   const [walkthroughActive, setWalkthroughActive] = useState(false);
   const [resetKey, setResetKey] = useState(0);
-  const [touch] = useState(isTouchDevice);
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -100,7 +94,7 @@ export default function ThreeDViewer() {
               onFullscreen={handleFullscreen}
               onWalkthrough={handleWalkthrough}
               walkthroughActive={walkthroughActive}
-              showWalkthrough={!touch}
+              showWalkthrough={false}
             />
           </div>
         </>

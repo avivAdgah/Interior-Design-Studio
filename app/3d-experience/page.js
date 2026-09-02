@@ -50,8 +50,8 @@ export default function ThreeDExperiencePage() {
           <ThreeDViewerLoader />
           <p className="font-sans text-xs text-stone mt-4">
             Drag to rotate &middot; Scroll to zoom &middot; Use the controls
-            below the viewer to reset the view, enter fullscreen, or start a
-            walkthrough.
+            below the viewer to reset the view or enter fullscreen. A full
+            walking tour of the suite is coming soon.
           </p>
         </Container>
       </section>

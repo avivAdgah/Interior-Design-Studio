@@ -57,8 +57,8 @@ export default function Home() {
             </Button>
           </div>
           <PlaceholderImage
-            src={pexels(8134745, 1920)}
-            alt="Featured Northline Studio architecture project — modern house with swimming pool"
+            src={pexels(4626268, 1920)}
+            alt="Featured Northline Studio architecture project — modern house facade glowing at dusk"
             sizes="100vw"
             priority
             aspect="aspect-[16/9]"

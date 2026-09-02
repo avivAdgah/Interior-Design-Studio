@@ -6,8 +6,10 @@ import { PointerLockControls } from "@react-three/drei";
 import * as THREE from "three";
 
 const EYE_HEIGHT = 1.6;
-const SPEED = 4.5;
-const BOUNDS = 8.5;
+const SPEED = 3.2;
+const BOUNDS_X = 2.7;
+const BOUNDS_Z_MIN = -3.7;
+const BOUNDS_Z_MAX = 3.7;
 
 export default function WalkthroughControls({ onExit }) {
   const { camera } = useThree();
@@ -17,8 +19,8 @@ export default function WalkthroughControls({ onExit }) {
   const right = useRef(new THREE.Vector3());
 
   useEffect(() => {
-    camera.position.set(0, EYE_HEIGHT, 6);
-    camera.lookAt(0, EYE_HEIGHT, 0);
+    camera.position.set(0, EYE_HEIGHT, -3.5);
+    camera.lookAt(-0.3, EYE_HEIGHT, 3);
   }, [camera]);
 
   useEffect(() => {
@@ -65,8 +67,8 @@ export default function WalkthroughControls({ onExit }) {
     if (move.lengthSq() > 0) {
       move.normalize().multiplyScalar(SPEED * delta);
       camera.position.add(move);
-      camera.position.x = THREE.MathUtils.clamp(camera.position.x, -BOUNDS, BOUNDS);
-      camera.position.z = THREE.MathUtils.clamp(camera.position.z, -BOUNDS, BOUNDS);
+      camera.position.x = THREE.MathUtils.clamp(camera.position.x, -BOUNDS_X, BOUNDS_X);
+      camera.position.z = THREE.MathUtils.clamp(camera.position.z, BOUNDS_Z_MIN, BOUNDS_Z_MAX);
       camera.position.y = EYE_HEIGHT;
     }
   });
