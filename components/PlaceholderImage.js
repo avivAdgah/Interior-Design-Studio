@@ -1,9 +1,31 @@
+import Image from "next/image";
+
 export default function PlaceholderImage({
   label,
+  src,
   aspect = "aspect-[4/5]",
   className = "",
   alt,
+  sizes = "100vw",
+  priority = false,
 }) {
+  if (src) {
+    return (
+      <div
+        className={`relative overflow-hidden bg-mist ${aspect} ${className}`}
+      >
+        <Image
+          src={src}
+          alt={alt || label || ""}
+          fill
+          sizes={sizes}
+          priority={priority}
+          className="object-cover"
+        />
+      </div>
+    );
+  }
+
   return (
     <div
       role="img"

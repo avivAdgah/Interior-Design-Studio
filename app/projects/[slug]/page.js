@@ -51,8 +51,10 @@ export default async function ProjectDetailPage({ params }) {
         </Container>
         <Container>
           <PlaceholderImage
-            label={project.heroImage}
-            alt={`${project.title} — hero image`}
+            src={project.heroImage.src}
+            alt={project.heroImage.alt}
+            sizes="100vw"
+            priority
             aspect="aspect-[16/9]"
           />
         </Container>
@@ -103,8 +105,10 @@ export default async function ProjectDetailPage({ params }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {project.gallery.map((image) => (
               <PlaceholderImage
-                key={image}
-                label={image}
+                key={image.src}
+                src={image.src}
+                alt={image.alt}
+                sizes="(min-width: 768px) 45vw, 100vw"
                 aspect="aspect-[4/3]"
               />
             ))}

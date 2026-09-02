@@ -6,8 +6,9 @@ export default function TeamCard({ member, showIntro = false, headingLevel = "h3
   return (
     <Link href={`/team/${member.slug}`} className="group flex flex-col gap-4">
       <PlaceholderImage
-        label={member.portraitLabel}
-        alt={`Portrait of ${member.name}`}
+        src={member.portrait.src}
+        alt={member.portrait.alt}
+        sizes="(min-width: 1024px) 23vw, 45vw"
         aspect="aspect-[3/4]"
         className="transition-opacity duration-300 group-hover:opacity-80"
       />

@@ -9,8 +9,9 @@ export default function ProjectCard({ project, headingLevel = "h3" }) {
       className="group flex flex-col gap-4"
     >
       <PlaceholderImage
-        label={project.cardImage}
-        alt={`${project.title} — ${project.categoryLabel}`}
+        src={project.cardImage.src}
+        alt={project.cardImage.alt}
+        sizes="(min-width: 1024px) 45vw, 100vw"
         aspect="aspect-[4/3]"
         className="transition-opacity duration-300 group-hover:opacity-80"
       />

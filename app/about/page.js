@@ -2,6 +2,7 @@ import Container from "@/components/Container";
 import SectionHeader from "@/components/SectionHeader";
 import PlaceholderImage from "@/components/PlaceholderImage";
 import Button from "@/components/Button";
+import { pexels } from "@/lib/images";
 
 export const metadata = {
   title: "About",
@@ -53,7 +54,10 @@ export default function AboutPage() {
         </Container>
         <Container>
           <PlaceholderImage
-            label="[NORTHLINE STUDIO / TEAM IMAGE]"
+            src={pexels(6615095, 1920)}
+            alt="Northline Studio team reviewing architectural blueprints"
+            sizes="100vw"
+            priority
             aspect="aspect-[21/9]"
           />
         </Container>

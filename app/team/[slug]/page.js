@@ -33,8 +33,10 @@ export default async function TeamMemberPage({ params }) {
         <Container className="pt-16 pb-24 md:pt-20 md:pb-32 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
           <div className="lg:col-span-5">
             <PlaceholderImage
-              label={member.portraitLabel}
-              alt={`Portrait of ${member.name}`}
+              src={member.portrait.src}
+              alt={member.portrait.alt}
+              sizes="(min-width: 1024px) 40vw, 90vw"
+              priority
               aspect="aspect-[3/4]"
             />
           </div>

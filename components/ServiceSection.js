@@ -7,7 +7,8 @@ export default function ServiceSection({
   heading,
   description,
   scope,
-  imageLabel,
+  imageSrc,
+  imageAlt,
   reverse = false,
   ctaLabel,
   ctaHref,
@@ -51,7 +52,12 @@ export default function ServiceSection({
           ) : null}
         </div>
         <div className={`lg:col-span-6 ${reverse ? "lg:order-1 lg:col-start-1" : "lg:col-start-7"}`}>
-          <PlaceholderImage label={imageLabel} aspect="aspect-[4/3]" />
+          <PlaceholderImage
+            src={imageSrc}
+            alt={imageAlt}
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            aspect="aspect-[4/3]"
+          />
         </div>
       </Container>
     </section>

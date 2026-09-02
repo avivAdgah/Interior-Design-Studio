@@ -1,6 +1,7 @@
 import Container from "@/components/Container";
 import SectionHeader from "@/components/SectionHeader";
 import ServiceSection from "@/components/ServiceSection";
+import { pexels } from "@/lib/images";
 
 export const metadata = {
   title: "Services",
@@ -33,7 +34,8 @@ export default function ServicesPage() {
           "Material direction",
           "Coordination",
         ]}
-        imageLabel="[ARCHITECTURE SERVICE IMAGE]"
+        imageSrc={pexels(19541342, 1400)}
+        imageAlt="Geometric modern architecture facade"
       />
 
       <ServiceSection
@@ -47,20 +49,23 @@ export default function ServicesPage() {
           "Custom elements",
           "Styling",
         ]}
-        imageLabel="[INTERIOR DESIGN IMAGE]"
+        imageSrc={pexels(20390760, 1400)}
+        imageAlt="Elegant modern minimalist interior"
         reverse
       />
 
       <ServiceSection
         heading="Renovation"
         description="We help transform existing buildings and interiors while respecting their constraints, opportunities, and character."
-        imageLabel="[RENOVATION PROJECT IMAGE]"
+        imageSrc={pexels(7045945, 1400)}
+        imageAlt="Renovated loft-style apartment interior"
       />
 
       <ServiceSection
         heading="3D Visualization"
         description="Visualize the project before construction begins through architectural models, spatial visualization, and interactive experiences."
-        imageLabel="[INTERACTIVE 3D PREVIEW]"
+        imageSrc={pexels(9618450, 1400)}
+        imageAlt="Architect working with an architectural model"
         reverse
         ctaLabel="Experience a Project in 3D"
         ctaHref="/3d-experience"

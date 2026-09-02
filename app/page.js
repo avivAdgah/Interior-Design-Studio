@@ -8,6 +8,7 @@ import TeamGrid from "@/components/TeamGrid";
 import CTASection from "@/components/CTASection";
 import { getFeaturedProjects } from "@/lib/projects";
 import { TEAM } from "@/lib/team";
+import { pexels } from "@/lib/images";
 
 const SERVICES_PREVIEW = [
   {
@@ -56,7 +57,10 @@ export default function Home() {
             </Button>
           </div>
           <PlaceholderImage
-            label="[FEATURED ARCHITECTURE PROJECT]"
+            src={pexels(8134745, 1920)}
+            alt="Featured Northline Studio architecture project — modern house with swimming pool"
+            sizes="100vw"
+            priority
             aspect="aspect-[16/9]"
             className="mt-16"
           />
@@ -140,7 +144,9 @@ export default function Home() {
           </div>
           <div className="lg:col-span-7">
             <PlaceholderImage
-              label="[INTERACTIVE 3D PREVIEW]"
+              src={pexels(209630, 1400)}
+              alt="Interactive 3D architectural visualization preview"
+              sizes="(min-width: 1024px) 55vw, 100vw"
               aspect="aspect-[4/3]"
             />
           </div>
