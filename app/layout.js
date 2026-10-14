@@ -1,3 +1,4 @@
+import Script from "next/script";
 import { Fraunces, Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
       >
         <Navbar />
         {children}
+        <Script src="/aviv-credit.js" strategy="afterInteractive" />
         <Footer />
       </body>
     </html>
